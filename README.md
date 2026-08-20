@@ -15,6 +15,7 @@ The assistant:
 - Logs every customer interaction.
 - Includes automated tests for key behaviors.
 
+
 ## Architecture
 
 ```text
