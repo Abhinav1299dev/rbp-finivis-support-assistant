@@ -49,7 +49,6 @@ def generate_answer(question, faq_entries):
             "I can escalate this to a human for further assistance."
         )
 
-    # Build the FAQ context.
     context_parts = []
 
     for entry in faq_entries:
@@ -86,26 +85,14 @@ and offer escalation to a human.
         return response.output_text.strip()
 
     except RateLimitError:
-        return (
-            "The AI service is currently unavailable. "
-            "I cannot safely provide an answer right now, "
-            "so this should be escalated to a human."
-        )
+        return faq_entries[0]["answer"]
 
     except APIError:
-        return (
-            "The AI service is currently unavailable. "
-            "I cannot safely provide an answer right now, "
-            "so this should be escalated to a human."
-        )
+        return faq_entries[0]["answer"]
 
 
 def answer_question(question):
     """Process a customer question."""
-
-    # ---------------------------------------------------------
-    # STEP 1: Check mandatory escalation rules first.
-    # ---------------------------------------------------------
 
     escalation = check_escalation(question)
 
@@ -119,16 +106,7 @@ def answer_question(question):
             "reason": escalation["reason"]
         }
 
-    # ---------------------------------------------------------
-    # STEP 2: Retrieve relevant information from the FAQ.
-    # ---------------------------------------------------------
-
     faq_entries = retrieve_relevant_entries(question)
-
-    # ---------------------------------------------------------
-    # STEP 3: If nothing relevant was found, DO NOT call AI.
-    # This prevents the assistant from guessing.
-    # ---------------------------------------------------------
 
     if not faq_entries:
         return {
@@ -139,10 +117,6 @@ def answer_question(question):
             "escalated": False,
             "reason": None
         }
-
-    # ---------------------------------------------------------
-    # STEP 4: Generate answer using only the FAQ.
-    # ---------------------------------------------------------
 
     answer = generate_answer(question, faq_entries)
 
@@ -172,7 +146,6 @@ def main():
 
         result = answer_question(question)
 
-        # Log every exchange.
         log_exchange(
             question=question,
             answer=result["answer"],

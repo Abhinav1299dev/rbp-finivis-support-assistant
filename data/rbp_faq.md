@@ -32,7 +32,7 @@
 
 **How fast are payments?** SEPA transfers settle in under ten seconds within the Eurozone. SWIFT transfers typically settle T+1. Domestic USD and GBP transfers settle same-day.
 
-**Is there a maximum transfer size?** There is no fixed cap, but transfers above $500,000 are routed for human review before release.
+**Is there a maximum transfer size?** There is no fixed cap, but transfers above $50,000 are routed for human review before release.
 
 **Can I track an international payment?** Yes, where the corridor supports SWIFT gpi tracking.
 
