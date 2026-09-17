@@ -14,12 +14,6 @@ The assistant is designed to:
 * Log customer interactions in JSONL format.
 * Include automated tests covering important assistant behaviors.
 
-## Demo
-
-The assistant is available through a simple web interface where users can enter a question and receive a response.
-
-![RBP Support Assistant Demo](docs/demo.png)
-
 ## Architecture
 
 ```text
@@ -43,54 +37,4 @@ Generated Answer
        |
        v
 JSONL Logger
-```
-
-## Project Structure
-
-```text
-rbp-support-assistant/
-├── app.py
-├── data/
-│   └── rbp_faq.md
-├── src/
-│   ├── assistant.py
-│   ├── retriever.py
-│   ├── rules.py
-│   └── logger.py
-├── tests/
-│   └── test_assistant.py
-├── docs/
-│   └── demo.png
-├── PROCESS.md
-├── FAILURE_ANALYSIS.md
-├── README.md
-└── requirements.txt
-```
-
-## Running the Application
-
-Install the dependencies:
-
-```bash
-pip install -r requirements.txt
-```
-
-Start the Flask application:
-
-```bash
-python app.py
-```
-
-The application will be available locally at:
-
-```text
-http://localhost:5000
-```
-
-## Testing
-
-Run the automated tests with:
-
-```bash
-pytest -q
 ```
