@@ -38,3 +38,21 @@ Generated Answer
        v
 JSONL Logger
 ```
+Running the Application
+
+Install the dependencies:
+
+pip install -r requirements.txt
+
+Start the Flask application:
+
+python app.py
+
+The application will be available locally at:
+
+http://localhost:5000
+Testing
+
+Run the automated tests with:
+
+pytest -q
