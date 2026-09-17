@@ -1,20 +1,24 @@
 # RBP Finivis Support Assistant
 
-A small FAQ-based customer support assistant built for the RBP Finivis
-Marketing & AI Operations Internship Round 1 task.
+A FAQ-based customer support assistant developed for the RBP Finivis Marketing & AI Operations Internship — Round 1 task.
 
-## What it does
+## Features
 
-The assistant:
+The assistant is designed to:
 
-- Answers customer questions using the supplied RBP FAQ.
-- Avoids answering when the FAQ does not contain sufficient information.
-- Escalates complaints.
-- Escalates specific transaction problems.
-- Escalates transfers above $50,000.
-- Logs every customer interaction.
-- Includes automated tests for key behaviors.
+* Answer customer questions using the provided RBP FAQ.
+* Avoid generating answers when the FAQ does not provide sufficient information.
+* Escalate customer complaints.
+* Escalate defined transaction-related issues.
+* Escalate transfers exceeding $50,000.
+* Log customer interactions in JSONL format.
+* Include automated tests covering important assistant behaviors.
 
+## Demo
+
+The assistant is available through a simple web interface where users can enter a question and receive a response.
+
+![RBP Support Assistant Demo](docs/demo.png)
 
 ## Architecture
 
@@ -24,18 +28,69 @@ Customer Question
        v
 Escalation Rules
        |
-       +---- Escalation required ----> Human escalation
+       +---- Escalation required ----> Human Escalation
        |
        v
 FAQ Retriever
        |
-       +---- No relevant FAQ --------> "I don't know"
+       +---- No relevant FAQ --------> "I don't have that information"
        |
        v
 OpenAI Model
        |
        v
-Answer
+Generated Answer
        |
        v
 JSONL Logger
+```
+
+## Project Structure
+
+```text
+rbp-support-assistant/
+├── app.py
+├── data/
+│   └── rbp_faq.md
+├── src/
+│   ├── assistant.py
+│   ├── retriever.py
+│   ├── rules.py
+│   └── logger.py
+├── tests/
+│   └── test_assistant.py
+├── docs/
+│   └── demo.png
+├── PROCESS.md
+├── FAILURE_ANALYSIS.md
+├── README.md
+└── requirements.txt
+```
+
+## Running the Application
+
+Install the dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+Start the Flask application:
+
+```bash
+python app.py
+```
+
+The application will be available locally at:
+
+```text
+http://localhost:5000
+```
+
+## Testing
+
+Run the automated tests with:
+
+```bash
+pytest -q
+```
