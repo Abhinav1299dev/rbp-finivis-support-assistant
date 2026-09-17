@@ -2,12 +2,12 @@
 
 ## 1. What was the hardest decision you made, and what did you choose?
 
-The hardest decision was deciding how to handle questions when the FAQ did not clearly contain the answer. I chose to prioritize safety over trying to make the assistant answer every question, so the system returns an explicit "I don't have that information" response instead of guessing.
+The most difficult design decision was determining how the assistant should respond when the FAQ did not contain sufficient information to answer a customer’s question. I chose to prioritize reliability and safety over attempting to answer every question, so the assistant explicitly states, “I don’t have that information,” instead of generating an unsupported or potentially misleading response.
 
 ## 2. Where did you get stuck, and how did you get unstuck?
 
-I got stuck while testing the FAQ retrieval because unrelated questions could match FAQ entries through common keywords, and paraphrased questions could be missed. I debugged the retrieval behavior with individual test questions, tightened the matching logic, and added automated tests for both relevant and unknown questions until all six tests passed.
+I encountered difficulties while testing the FAQ retrieval system. Some unrelated questions matched FAQ entries because of common keywords, while some paraphrased questions failed to retrieve relevant information. I investigated these cases individually, refined the matching logic, and added automated tests covering complaints, transaction issues, transfer-amount boundaries, FAQ retrieval, and unknown questions. After these changes, all six automated tests passed.
 
 ## 3. If you used AI tools to help build this, which ones and for what parts?
 
-I used ChatGPT to help with the initial implementation, debugging Python errors, improving the FAQ retrieval logic, creating automated tests, and structuring the project documentation. I reviewed and tested the generated code myself and made changes based on the behavior observed during testing.
+I used ChatGPT as a development assistant during the initial implementation, Python debugging, retrieval-logic improvements, automated test creation, and documentation preparation. I treated the generated suggestions as starting points rather than final solutions, reviewing the code, executing tests, investigating observed behavior, and making the necessary modifications myself.
