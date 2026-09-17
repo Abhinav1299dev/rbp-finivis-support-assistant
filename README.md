@@ -1,6 +1,6 @@
 # RBP Finivis Support Assistant
 
-A FAQ-based customer support assistant developed for the RBP Finivis Marketing & AI Operations Internship — Round 1 task.
+A FAQ-based customer support assistant developed for the RBP Finivis Marketing & AI Operations
 
 ## Features
 
